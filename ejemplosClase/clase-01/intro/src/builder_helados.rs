@@ -1,3 +1,9 @@
+/*
+ * The compiler provides a dead_code lint that 
+ * will warn about unused functions. 
+ * An attribute can be used to disable the lint.
+ */
+
 #[allow(dead_code)]
 #[derive(Debug)]
 enum Recipiente {
