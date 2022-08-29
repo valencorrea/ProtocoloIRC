@@ -1,38 +1,30 @@
 use std::io;
 
 pub fn jugar_ahorcado(palabra: &String){
-    let cantidad_intentos = 6;
-    let mut intentos_fallidos = 0;
-    let letras_totales = palabra.len();
-    let mut letras_adivinadas = 0;
+    let mut intentos_restantes = 6;
+    let mut letras_por_adivinar = palabra.len();
 
     println!("Bienvenido al ahorcado de FIUBA!");
 
-    while ((cantidad_intentos - intentos_fallidos) > 0) ||
-            (letras_adivinadas != letras_totales) {
-
+    while (intentos_restantes > 0) && (letras_por_adivinar > 0) {
         mostrar_reporte_actual();
-        let mut nueva_letra = pedir_nueva_letra();
-        let adivino = adivinar_letra(nueva_letra);
 
-        if adivino {
-            letras_adivinadas = letras_adivinadas +1;
+        if !adivinar_letra(pedir_nueva_letra()) {
+            intentos_restantes = intentos_restantes - 1;
         }
         else{
-            intentos_fallidos = intentos_fallidos +1;
-
+            letras_por_adivinar = letras_por_adivinar - 1;
         }
-
     }   
-    mostrar_reporte_final(letras_totales, letras_adivinadas); 
+    mostrar_reporte_final(letras_por_adivinar); 
 }
 
 pub fn adivinar_letra(nueva_letra: String) -> bool {
     true
 }
 
-pub fn mostrar_reporte_final(letras_totales: usize, letras_adivinadas: usize){
-    if letras_totales == letras_adivinadas {
+pub fn mostrar_reporte_final(letras_por_adivinar: usize){
+    if letras_por_adivinar == 0 {
         println!("Felicitaciones, ganaste!!!");
     }
     else {
