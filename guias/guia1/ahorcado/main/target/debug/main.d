@@ -1,1 +1,0 @@
-/home/eduardo/TallerDeProgramacion-I/guias/guia1/ahorcado/main/target/debug/main: /home/eduardo/TallerDeProgramacion-I/guias/guia1/ahorcado/main/src/ahorcado.rs /home/eduardo/TallerDeProgramacion-I/guias/guia1/ahorcado/main/src/main.rs
